@@ -18,3 +18,4 @@ let b = [...a];
 b[0] = 99;
 // modArray(a);
 console.log(a); 
+
