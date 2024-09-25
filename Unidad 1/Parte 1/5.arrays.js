@@ -56,3 +56,4 @@ personas.sort((p1, p2) => p1.edad - p2.edad);
 console.log(personas.toString());
 personas.sort((p1, p2) => p1.nombre.localeCompare(p2.nombre));
 console.log(personas.toString());
+
