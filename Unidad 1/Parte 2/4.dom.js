@@ -17,8 +17,8 @@ while(li = li.nextElementSibling) {
     console.log(li);
 }
 
-console.log(document.querySelector("#tercero + li").textContent);
-console.log(document.querySelectorAll("#tercero ~ li"));
-console.log(document.querySelectorAll("li:has(~ #tercero)"));
-console.log(document.querySelectorAll("li:not(#tercero)"));
-console.log(document.querySelectorAll("li:nth-child(odd)"));
+console.log(document.querySelector("#tercero + li").textContent); // HErmano (li) siguiente al li con id tercero
+console.log(document.querySelectorAll("#tercero ~ li")); // Hermanos posteriores al li con id tercero
+console.log(document.querySelectorAll("li:has(~ #tercero)")); // Hermanos anteriores al elemento con id tercero
+console.log(document.querySelectorAll("li:not(#tercero)")); // li que no tengan la id tercero (todos los hermanos)
+console.log(document.querySelectorAll("li:nth-child(odd)")); // li impares
