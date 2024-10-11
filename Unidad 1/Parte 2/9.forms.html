@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            vertical-align: middle;
+            img {
+                height: 30px;
+            }
+        }
+    </style>
+    <script src="9.forms.js" defer></script>
+</head>
+<body>
+    <form id="formPersona">
+        <p><input type="text" name="nombre" id="nombre" placeholder="Nombre" required></p>
+        <p>
+          Aficiones:
+          <input type="checkbox" name="hobbies" value="tenis"> Tenis
+          <input type="checkbox" name="hobbies" value="comer"> Comer
+          <input type="checkbox" name="hobbies" value="viajar"> Viajar
+          <input type="checkbox" name="hobbies" value="caminar"> Caminar
+        </p>
+        <p>Avatar: <input type="file" name="avatar" required accept="image/*"></p>
+        <div><img src="" alt="" id="imgPreview"></div>
+        <p><button type="submit">Añadir</button></p>
+    </form>
+
+    <table id="personas">
+        <thead>
+            <tr>
+                <th>Avatar</th>
+                <th>Nombre</th>
+                <th>Aficiones</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>
