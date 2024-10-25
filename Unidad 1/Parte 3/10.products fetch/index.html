@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td > img {
+            max-height: 30px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #eee;
+        }
+    </style>
+    <script type="module" src="index.js"></script>
+</head>
+<body>
+    <table id="products">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Fecha</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <form id="formProducto">
+      <p><input type="text" name="description" id="description" placeholder="Description" required></p>
+      <p><input type="number" name="price" id="price" placeholder="Price" required></p>
+      <p>Imagen: <input type="file" name="image" id="image" required></p>
+      <p><img id="imgPreview" src=""></p> <!-- Para previsualizar la imagen seleccionada -->
+      <button type="submit">Añadir</button>
+  </form>
+
+    <template id="productTemplate">
+        <tr>
+            <td>
+                <img src="" alt="">
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <button class="delete">Borrar</button>
+            </td>
+        </tr>
+    </template>
+  </body>
+</html>
