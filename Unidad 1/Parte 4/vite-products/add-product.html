@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="src/add-product.js"></script>
+</head>
+<body>
+    <p><a href="index.html">Ir al listado</a></p>
+    <form id="formProducto">
+      <p><input type="text" name="description" id="description" placeholder="Description" required></p>
+      <p><input type="number" name="price" id="price" placeholder="Price" required></p>
+      <p>Imagen: <input type="file" name="image" id="image" required></p>
+      <p><img id="imgPreview" src=""></p> <!-- Para previsualizar la imagen seleccionada -->
+      <button type="submit">Añadir</button>
+  </form>
+  </body>
+</html>

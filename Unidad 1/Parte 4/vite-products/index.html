@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td > img {
+            max-height: 30px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #eee;
+        }
+    </style>
+    <script type="module" src="src/index.js"></script>
+</head>
+<body>
+  <p><a href="add-product.html">Añadir producto</a></p>
+    <table id="products">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Fecha</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <template id="productTemplate">
+        <tr>
+            <td>
+                <img src="" alt="">
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <button class="delete">Borrar</button>
+            </td>
+        </tr>
+    </template>
+  </body>
+</html>
