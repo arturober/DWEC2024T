@@ -1,0 +1,119 @@
+<div class="card mb-4">
+  <div class="card-header bg-success text-white">Add product</div>
+  <div class="card-body">
+    <form (ngSubmit)="addProduct(productForm)" #productForm="ngForm">
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end">Description</span>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            [(ngModel)]="newProduct.description"
+          />
+        </div>
+      </label>
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end">Price</span>
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            name="price"
+            [(ngModel)]="newProduct.price"
+          />
+        </div>
+      </label>
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end">Available</span>
+        <div class="col-sm-10">
+          <input
+            type="date"
+            class="form-control"
+            name="available"
+            [(ngModel)]="newProduct.available"
+          />
+        </div>
+      </label>
+      <label class="mb-3 row">
+        <span class="col-sm-2 col-form-label text-sm-end"> Image</span>
+        <div class="col-sm-10">
+          <input
+            type="file"
+            class="form-control"
+            accept="image/*"
+            (change)="changeImage($event)"
+            name="fileName"
+            ngModel
+          />
+        </div>
+      </label>
+      @if (newProduct.imageUrl) {
+      <div class="row mb-3">
+        <div class="col-sm-10 offset-sm-2">
+          <img class="product-img" [src]="newProduct.imageUrl" alt="" />
+        </div>
+      </div>
+      }
+
+      <div class="mb-3 row">
+        <div class="offset-sm-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div>{{ newProduct | json }}</div>
+
+<div class="card mb-4">
+  <div class="card-header bg-primary text-white">Mi lista de productos</div>
+  <div class="card-block">
+    <div class="row">
+      <label class="col-form-label col-sm-2 text-sm-end" for="filterDesc">
+        Filter:
+      </label>
+      <div class="col-sm-5">
+        <input type="text" [(ngModel)]="search" class="form-control" id="filterDesc" placeholder="Filter..." />
+      </div>
+      <div class="col-form-label col-sm-5">
+        Filtered by: {{ search() }}
+      </div>
+    </div>
+    @if(productsFiltered().length) {
+    <div class="table-responsive">
+      <table class="table table-striped m-0">
+        <thead>
+          <tr>
+            <th>
+              @let buttonText = (showImage()?'Hide':'Show') + ' images';
+              <button
+                class="btn btn-sm"
+                [class]="{
+                  'btn-danger': showImage(),
+                  'btn-primary': !showImage(),
+                }"
+                (click)="toggleImage()"
+              >
+                {{ buttonText }}
+              </button>
+            </th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Disponible</th>
+            <th><!--Para el botón de borrar --></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (product of productsFiltered(); track product.id) {
+            <product-item></product-item>
+          }
+        </tbody>
+      </table>
+    </div>
+    } @else {
+    <h3 class="p-4">No hay productos disponibles</h3>
+    }
+  </div>
+</div>

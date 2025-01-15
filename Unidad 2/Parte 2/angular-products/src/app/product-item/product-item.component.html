@@ -1,0 +1,15 @@
+<tr>
+  <td>
+    @if(showImage()) {
+    <img [src]="product.imageUrl" alt="" [title]="product.description | uppercase" />
+    }
+  </td>
+  <td>
+    {{ product.description }}
+  </td>
+  <td>{{ product.price | intlCurrency:'EUR' }}</td>
+  <td>{{ product.available | date:'dd/MM/yyyy'}}</td>
+  <td>
+    <button (click)="deleteProduct()" class="btn btn-danger btn-sm fw-bold">X</button>
+  </td>
+</tr>
