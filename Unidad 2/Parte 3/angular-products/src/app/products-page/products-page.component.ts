@@ -2,12 +2,14 @@ import {
   Component,
   computed,
   effect,
+  inject,
   signal
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../interfaces/product';
 import { ProductItemComponent } from '../product-item/product-item.component';
 import { ProductFormComponent } from '../product-form/product-form.component';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'products-page',
@@ -16,32 +18,9 @@ import { ProductFormComponent } from '../product-form/product-form.component';
   styleUrl: './products-page.component.css',
 })
 export class ProductsPageComponent {
-  products = signal<Product[]>([
-    {
-      id: 1,
-      description: 'SSD hard drive',
-      available: '2016-10-03',
-      price: 75,
-      imageUrl: '/ssd.jpg',
-      rating: 5,
-    },
-    {
-      id: 2,
-      description: 'LGA1151 Motherboard',
-      available: '2016-09-15',
-      price: 96.95,
-      imageUrl: '/motherboard.jpg',
-      rating: 4,
-    },
-    {
-      id: 3,
-      description: '16GB RAM',
-      available: '2024-12-15',
-      price: 56.5,
-      imageUrl: '/ram.jpg',
-      rating: 3,
-    },
-  ]);
+  #productsService = inject(ProductsService);
+
+  products = signal<Product[]>([]);
 
   showImage = signal(true);
   search = signal('');
@@ -51,6 +30,7 @@ export class ProductsPageComponent {
   ));
 
   constructor() {
+    this.#productsService.getProducts().subscribe(products => this.products.set(products));
     effect(() =>
       console.log('Imágenes visibles: ' + (this.showImage() ? 'sí' : 'no'))
     );
