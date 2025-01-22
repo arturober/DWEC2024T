@@ -1,0 +1,8 @@
+/* :host hace referencia al propio elemento */
+:host(:nth-child(even)) {
+  background-color: #eee;
+}
+
+div:first-child img {
+  height: 40px;
+}
