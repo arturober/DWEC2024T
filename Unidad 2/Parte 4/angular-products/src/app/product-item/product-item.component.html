@@ -7,7 +7,9 @@
   />
   }
 </div>
-<div class="col-4 my-auto">{{ product().description }}</div>
+<div class="col-4 my-auto">
+  <a [routerLink]="['/products', product().id]">{{ product().description }}</a>
+</div>
 <div class="col my-auto">
   {{ product().price | intlCurrency : "EUR" : "symbol" }}
 </div>

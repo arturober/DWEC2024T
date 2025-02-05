@@ -1,0 +1,22 @@
+@if (product()) {
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    {{ product()!.description }}
+  </div>
+  <div class="card-block p-3 text-center">
+    <img [src]="product()!.imageUrl" alt="" />
+    <div>Price: {{ product()!.price | intlCurrency : "EUR" : "es-ES" }}</div>
+    <div>Available since: {{ product()!.available | date : "dd/MM/y" }}</div>
+    <div>
+      <!-- <star-rating
+        [rating]="product()!.rating"
+        (ratingChange)="changeRating($event)"
+      ></star-rating> -->
+    </div>
+    <div class="mt-3">
+      <button type="button" class="btn btn-danger">Go back</button>
+    </div>
+  </div>
+</div>
+}
+<p><a [routerLink]="['/products', 4]">Ir al producto 4</a></p>

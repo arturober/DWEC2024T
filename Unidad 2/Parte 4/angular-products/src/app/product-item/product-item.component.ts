@@ -12,10 +12,11 @@ import { IntlCurrencyPipe } from '../pipes/intl-currency.pipe';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ProductsService } from '../services/products.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'product-item',
-  imports: [DatePipe, UpperCasePipe, IntlCurrencyPipe, StarRatingComponent],
+  imports: [DatePipe, UpperCasePipe, IntlCurrencyPipe, StarRatingComponent, RouterLink],
   templateUrl: './product-item.component.html',
   styleUrl: './product-item.component.css',
 })

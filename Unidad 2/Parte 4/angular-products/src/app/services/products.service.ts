@@ -17,6 +17,12 @@ export class ProductsService {
       .pipe(map((r) => r.products));
   }
 
+  getProduct(id: number): Observable<Product> {
+    return this.#http
+      .get<SingleProductResponse>(`${this.#urlProducts}/${id}`)
+      .pipe(map((resp) => resp.product));
+  }
+
   changeRating(idProduct: number, rating: number): Observable<void> {
     return this.#http.put<void>(`${this.#urlProducts}/${idProduct}/rating`, {
       rating: rating,
