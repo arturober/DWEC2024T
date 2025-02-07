@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EncodeBase64Directive } from '../directives/encode-base64.directive';
 import { ProductsService } from '../services/products.service';
+import { CanComponentDeactivate } from '../guards/leave-page.guard';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'product-form',
@@ -11,7 +13,7 @@ import { ProductsService } from '../services/products.service';
   templateUrl: './product-form.component.html',
   styleUrl: './product-form.component.css',
 })
-export class ProductFormComponent {
+export class ProductFormComponent implements CanComponentDeactivate {
   newProduct = {
     description: '',
     price: 0,
@@ -24,13 +26,22 @@ export class ProductFormComponent {
   #destroyRef = inject(DestroyRef);
   #router = inject(Router);
 
+  saved = false;
+
   addProduct() {
     this.#productsService
       .insertProduct(this.newProduct)
       .pipe(takeUntilDestroyed(this.#destroyRef))
       .subscribe({
-        next: () => this.#router.navigate(['/products']),
+        next: () => {
+          this.saved = true;
+          this.#router.navigate(['/products']);
+        },
         error: () => console.log('Error'),
       });
+  }
+
+  canDeactivate() {
+    return this.saved || confirm('¿Quieres abandonar la página?. Los cambios se perderán...');
   }
 }
