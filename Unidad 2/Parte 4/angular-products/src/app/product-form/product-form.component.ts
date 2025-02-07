@@ -3,9 +3,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EncodeBase64Directive } from '../directives/encode-base64.directive';
-import { ProductsService } from '../services/products.service';
 import { CanComponentDeactivate } from '../guards/leave-page.guard';
-import { Observable } from 'rxjs';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'product-form',
