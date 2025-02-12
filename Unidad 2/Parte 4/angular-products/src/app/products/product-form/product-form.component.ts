@@ -2,8 +2,8 @@ import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EncodeBase64Directive } from '../directives/encode-base64.directive';
-import { CanComponentDeactivate } from '../guards/leave-page.guard';
+import { EncodeBase64Directive } from '../../shared/directives/encode-base64.directive';
+import { CanComponentDeactivate } from '../../shared/guards/leave-page.guard';
 import { ProductsService } from '../services/products.service';
 
 @Component({

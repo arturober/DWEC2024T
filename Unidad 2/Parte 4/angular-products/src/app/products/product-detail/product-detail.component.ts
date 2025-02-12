@@ -11,9 +11,9 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Product } from '../interfaces/product';
-import { IntlCurrencyPipe } from '../pipes/intl-currency.pipe';
+import { IntlCurrencyPipe } from '../../shared/pipes/intl-currency.pipe';
 import { ProductsService } from '../services/products.service';
-import { StarRatingComponent } from '../star-rating/star-rating.component';
+import { StarRatingComponent } from '../../shared/star-rating/star-rating.component';
 
 @Component({
   selector: 'product-detail',

@@ -8,8 +8,8 @@ import {
   output,
 } from '@angular/core';
 import { Product } from '../interfaces/product';
-import { IntlCurrencyPipe } from '../pipes/intl-currency.pipe';
-import { StarRatingComponent } from '../star-rating/star-rating.component';
+import { IntlCurrencyPipe } from '../../shared/pipes/intl-currency.pipe';
+import { StarRatingComponent } from '../../shared/star-rating/star-rating.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ProductsService } from '../services/products.service';
 import { RouterLink } from '@angular/router';
