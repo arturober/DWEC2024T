@@ -1,0 +1,54 @@
+<form [formGroup]="myForm">
+  <div class="mb-3" formArrayName="daysOpen" oneChecked>
+    @for(day of days; track $index; let i = $index) {
+      <div class="form-check form-check-inline">
+        <!-- Inputs must have DIFFERENT names -->
+        <input type="checkbox" class="form-check-input" [formControlName]="i" id="checkDay{{i}}">
+        <label class="form-check-label" for="checkDay{{i}}">{{day}}</label>
+      </div>
+    }
+    @if(myForm.controls.daysOpen.invalid) {
+      <div class="text-danger">You must select at least one input</div>
+    }
+  </div>
+
+  <label class="mb-3 row">
+    <span class="col-sm-2 col-form-label text-sm-end">Email</span>
+    <div class="col-sm-10">
+      @let emailModel = myForm.controls.email;
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        [class]="{
+          'is-valid': emailModel.touched && emailModel.valid,
+          'is-invalid': emailModel.touched && emailModel.invalid,
+        }"      />
+      <div class="invalid-feedback">
+        El email es obligatorio y debe tener un formato correcto
+      </div>
+    </div>
+  </label>
+  <label class="mb-3 row">
+    <span class="col-sm-2 col-form-label text-sm-end">Repite email</span>
+    <div class="col-sm-10">
+      @let emailRepeatModel = myForm.controls.emailConfirm;
+      <input
+        type="email"
+        class="form-control"
+        formControlName="emailConfirm"
+        [class]="{
+          'is-valid': emailRepeatModel.touched && emailRepeatModel.valid,
+          'is-invalid': emailRepeatModel.touched && emailRepeatModel.invalid,
+        }"
+      />
+      <div class="invalid-feedback">Los correos no coinciden</div>
+    </div>
+  </label>
+  <div class="mb-3">
+    <button class="btn btn-primary" type="submit" [disabled]="myForm.invalid">Enviar</button>
+  </div>
+</form>
+
+<!-- <p>{{daysModel.value | json}}</p> -->
+<p>{{myForm.value | json}}</p>

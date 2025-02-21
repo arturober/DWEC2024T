@@ -1,0 +1,52 @@
+<div class="card mb-4">
+  <div class="card-header bg-primary text-white">Mi lista de productos</div>
+  <div class="card-block">
+    <div class="row">
+      <label class="col-form-label col-sm-2 text-sm-end" for="filterDesc">
+        Filter:
+      </label>
+      <div class="col-sm-5">
+        <input
+          type="text"
+          class="form-control"
+          id="filterDesc"
+          placeholder="Filter..."
+          [formControl]="searchControl"
+        />
+      </div>
+      <div class="col-form-label col-sm-5">Filtered by: {{ search() }}</div>
+    </div>
+
+    @if (productsResource.value()?.length) {
+      <div class="row headers g-0">
+        <div class="col-2">
+          <button
+            class="btn btn-sm"
+            [class]="this.showImage() ? 'btn-danger' : 'btn-primary'"
+            (click)="toggleImage()"
+          >
+            <i
+              class="fa-regular"
+              [class]="this.showImage() ? 'fa-eye-slash' : 'fa-eye'"
+            ></i>
+          </button>
+        </div>
+        <div class="col-4 my-auto">Producto</div>
+        <div class="col my-auto">Precio</div>
+        <div class="col my-auto">Disponible</div>
+        <div class="col my-auto">Puntuación</div>
+        <div class="col-auto" style="width: 2em"></div>
+      </div>
+      @for (product of productsResource.value(); track product.id) {
+      <product-item
+        [product]="product"
+        [showImage]="showImage()"
+        (deleted)="deleteProduct(product)"
+        class="row g-0"
+      />
+      }
+    } @else {
+      <h3 class="p-4">No hay productos disponibles</h3>
+    }
+  </div>
+</div>

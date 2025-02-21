@@ -1,0 +1,11 @@
+<div class="star-container" (mouseleave)="auxRating.set(rating())">
+  @for (star of [1,2,3,4,5]; track star) {
+    <i
+      class="fa-star"
+      [class]="star <= auxRating() ? 'fa-solid' : 'fa-regular'"
+      (mouseenter)="auxRating.set(star)"
+      (click)="rating.set(auxRating())"
+      aria-hidden="true"
+    ></i>
+  }
+</div>

@@ -1,0 +1,27 @@
+<div class="col-2 ps-2">
+  @if (showImage()) {
+  <img
+    [src]="product().imageUrl"
+    alt=""
+    [title]="product().description | uppercase"
+  />
+  }
+</div>
+<div class="col-4 my-auto">
+  <a [routerLink]="['/products', product().id]">{{ product().description }}</a>
+</div>
+<div class="col my-auto">
+  {{ product().price | intlCurrency : "EUR" : "symbol" }}
+</div>
+<div class="col my-auto">{{ product().available | date : "dd/MM/yyyy" }}</div>
+<div class="col my-auto">
+  <star-rating
+    [rating]="product().rating"
+    (ratingChange)="changeRating($event)"
+  ></star-rating>
+</div>
+<div class="col-auto me-2 my-auto" style="width: 2em">
+  <button (click)="deleteProduct()" class="btn btn-danger btn-sm fw-bold">
+    X
+  </button>
+</div>
