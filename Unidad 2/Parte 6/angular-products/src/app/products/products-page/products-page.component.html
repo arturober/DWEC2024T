@@ -7,17 +7,18 @@
       </label>
       <div class="col-sm-5">
         <input
-          type="search"
+          type="text"
+          [(ngModel)]="search"
           class="form-control"
           id="filterDesc"
           placeholder="Filter..."
-          [formControl]="searchControl"
         />
       </div>
       <div class="col-form-label col-sm-5">Filtered by: {{ search() }}</div>
     </div>
 
-    @if (productsResource.value()?.length) {
+    @let products = productsResource.value();
+    @if (products?.length) {
       <div class="row headers g-0">
         <div class="col-2">
           <button
@@ -37,7 +38,7 @@
         <div class="col my-auto">Puntuación</div>
         <div class="col-auto" style="width: 2em"></div>
       </div>
-      @for (product of productsResource.value(); track product.id) {
+      @for (product of products; track product.id) {
       <product-item
         [product]="product"
         [showImage]="showImage()"

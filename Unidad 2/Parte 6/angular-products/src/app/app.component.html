@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/products']">{{ title }}</a>
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/products']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Products
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/products', 'add']"
+          [routerLinkActive]="['active']"
+        >
+          New product
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
