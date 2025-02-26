@@ -1,0 +1,4 @@
+<ol-map [coordinates]="coordinates">
+  <ol-marker [coordinates]="coordinates"></ol-marker>
+  <ga-autocomplete (locationChange)="changePlace($event)"></ga-autocomplete>
+</ol-map>

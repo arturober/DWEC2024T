@@ -1,0 +1,17 @@
+<div>
+  <google-login class="btn" (login)="loggedGoogle($event)"></google-login>
+</div>
+
+<div>
+  <button
+    fbLogin
+    [scopes]="['email', 'public_profile']"
+    class="btn btn-primary ms-3"
+    (loginOk)="loggedFacebook($event)"
+    (loginError)="showError($event)"
+  >
+    <fa-icon [icon]="fbIcon"></fa-icon>
+    Login con Facebook
+  </button>
+</div>
+

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="mb-4 mt-4 row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+    <my-card bgClass="bg-primary" textClass="text-white">
+      <h3>Proyección de título</h3>
+      <p>Hola {{ title }}</p>
+    </my-card>
+  </div>
+
+  <p>
+    <load-button [loading]="loading" (click)="loading = !loading">
+      Loading button
+    </load-button>
+  </p>
+
+  <p>
+    <load-button [loading]="loading" (click)="loading = !loading">
+      <i class="fa-solid fa-star" #icon></i> Home
+    </load-button>
+  </p>
+
+  <p>
+    <button class="btn btn-primary" (click)="showModal = true">Show modal 1</button>
+    <button class="btn btn-primary ms-2" (click)="showModal2 = true">Show modal 2</button>
+  </p>
+</div>
+
+<my-modal [(show)]="showModal">
+  <ng-container header>Ejemplo modal</ng-container>
+  <p>Soy un texto</p>
+  <p>Soy otro texto</p>
+  <button footer class="btn btn-success">Sí</button>
+  <button footer class="btn btn-danger">No</button>
+</my-modal>
+
+<my-modal [(show)]="showModal2">
+</my-modal>

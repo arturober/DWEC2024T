@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+@import "ol/ol.css";
+@import "@geoapify/geocoder-autocomplete/styles/minimal.css";
+
+.autocomplete-container {
+  position: relative;
+}

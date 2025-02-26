@@ -1,0 +1,19 @@
+<div>
+  <fa-icon [icon]="icons.faCoffee"></fa-icon>
+  <fa-icon [icon]="icons.faStarRegular"></fa-icon>
+  <fa-icon [icon]="icons.faStarSolid"></fa-icon>
+</div>
+
+<div>
+<fa-layers [fixedWidth]="true">
+  <fa-icon [icon]="icons.faSquare" [style]="{'color':'red'}"></fa-icon>
+  <fa-icon [inverse]="true" [icon]="icons.faSpinner" transform="shrink-6" animation="spin"></fa-icon>
+</fa-layers>
+</div>
+
+<div>
+  <fa-layers [fixedWidth]="true">
+    <fa-icon [icon]="icons.faEnvelope"></fa-icon>
+    <fa-layers-counter content="23"></fa-layers-counter>
+  </fa-layers>
+</div>
