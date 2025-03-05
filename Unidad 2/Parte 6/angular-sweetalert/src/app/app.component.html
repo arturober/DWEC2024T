@@ -1,0 +1,24 @@
+<button
+  [swal]="{
+    title: 'Important question',
+    text: 'Can you see this?',
+    icon: 'question'
+  }"
+>
+  Show SweetAlert question
+</button>
+
+<button
+  [swal]="{
+    title: 'Who are you?',
+    input: 'text',
+    icon: 'question',
+    showCancelButton: true
+  }"
+  (confirm)="sayHello($event)"
+  (dismiss)="cancelHello()"
+>
+  Ask name
+</button>
+
+
