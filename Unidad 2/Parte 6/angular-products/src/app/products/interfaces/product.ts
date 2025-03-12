@@ -5,4 +5,5 @@ export interface Product {
   available: string;
   imageUrl: string;
   rating: number;
+  selected?: boolean
 }

@@ -1,6 +1,7 @@
 <div class="card mb-4">
   <div class="card-header bg-primary text-white">Mi lista de productos</div>
-  <div class="card-block">
+  @let products = productsResource.value();
+  <div class="card-block" [@animateList]="products?.length || 0">
     <div class="row">
       <label class="col-form-label col-sm-2 text-sm-end" for="filterDesc">
         Filter:
@@ -17,7 +18,6 @@
       <div class="col-form-label col-sm-5">Filtered by: {{ search() }}</div>
     </div>
 
-    @let products = productsResource.value();
     @if (products?.length) {
       <div class="row headers g-0">
         <div class="col-2">
@@ -26,10 +26,9 @@
             [class]="this.showImage() ? 'btn-danger' : 'btn-primary'"
             (click)="toggleImage()"
           >
-            <i
-              class="fa-regular"
-              [class]="this.showImage() ? 'fa-eye-slash' : 'fa-eye'"
-            ></i>
+            <fa-icon
+              [icon]="this.showImage() ? icons.eyeSlash : icons.eye"
+            ></fa-icon>
           </button>
         </div>
         <div class="col-4 my-auto">Producto</div>
@@ -40,6 +39,8 @@
       </div>
       @for (product of products; track product.id) {
       <product-item
+        [@animateProduct]="product.selected ? true : false"
+        (click)="product.selected = !product.selected"
         [product]="product"
         [showImage]="showImage()"
         (deleted)="deleteProduct(product)"

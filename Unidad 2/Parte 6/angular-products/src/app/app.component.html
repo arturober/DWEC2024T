@@ -25,6 +25,6 @@
   </div>
 </nav>
 
-<div class="container">
-  <router-outlet></router-outlet>
+<div class="container" style="position: relative;" [@routeAnimation]="getState(routerOutlet)">
+  <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>
