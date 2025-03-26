@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Google Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  @if (user()) {
+    <ion-list>
+      <ion-item text-wrap>
+        <ion-avatar slot="start">
+          <ion-img [src]="user()!.imageUrl"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2>{{user()!.name}}</h2>
+          <p>{{user()!.email}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  }
+
+      <ion-button expand="block" color="danger" (click)="login()">
+        <ion-icon name="logo-google" slot="start"></ion-icon>
+        <ion-label>Login with Google</ion-label>
+      </ion-button>
+
+  {{user() | json}}
+</ion-content>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ionic Capacitor</string>
+    <string name="title_activity_main">Ionic Capacitor</string>
+    <string name="package_name">dwec.ionic.capacitor</string>
+    <string name="custom_url_scheme">dwec.ionic.capacitor</string>
+    <string name="facebook_app_id">1100988247798042</string>
+    <string name="facebook_client_token">220465b47c8d891de3c0fbcf25e5c1fe</string>
+</resources>

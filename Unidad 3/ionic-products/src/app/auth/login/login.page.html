@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <ion-list>
+      <ion-item lines="none">
+        <ion-input
+          type="email"
+          name="email"
+          label="Email"
+          labelPlacement="floating"
+          errorText="Email empty or not valid"
+          required
+          email
+          [(ngModel)]="email"
+        ></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input
+          type="password"
+          name="password"
+          label="Password"
+          labelPlacement="floating"
+          errorText="Password must be at least 4 characters"
+          required
+          minlength="4"
+          [(ngModel)]="password"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button
+            type="submit"
+            color="primary"
+            expand="block"
+            [disabled]="loginForm.invalid"
+          >
+            <ion-icon name="log-in" slot="start"></ion-icon>
+            Login
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button
+            color="tertiary"
+            expand="block"
+            [routerLink]="['/auth/register']"
+            [routerDirection]="'root'"
+          >
+            <ion-icon name="document-text" slot="start"></ion-icon>
+            Register
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

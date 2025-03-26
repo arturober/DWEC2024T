@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Motion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <p><ion-button (click)="startMotion()" [disabled]="started">Enable motion</ion-button></p>
+  <h2>Acceleration</h2>
+  <p>X: {{acceleration().x | number:'1.2-2'}}</p>
+  <p>Y: {{acceleration().y | number:'1.2-2'}}</p>
+  <p>Z: {{acceleration().z | number:'1.2-2'}}</p>
+
+  <h2>Orientation</h2>
+  <p>Alpha: {{orientation().alpha | number:'1.2-2'}}</p>
+  <p>Beta: {{orientation().beta | number:'1.2-2'}}</p>
+  <p>Gamma: {{orientation().gamma | number:'1.2-2'}}</p>
+</ion-content>

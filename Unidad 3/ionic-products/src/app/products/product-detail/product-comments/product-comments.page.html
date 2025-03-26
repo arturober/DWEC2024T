@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar></ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="loadComments()">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secondary" (click)="addComment()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-list style="padding-bottom: 50px">
+    @for (com of comments(); track com.id) {
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-img [src]="com.user?.avatar"></ion-img>
+        </ion-avatar>
+        <ion-label text-wrap>
+          <p>{{com.user?.name}}</p>
+          <h4>{{com.text}}</h4>
+        </ion-label>
+      </ion-item>
+    }
+  </ion-list>
+</ion-content>

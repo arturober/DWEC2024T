@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Network</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  @if (connected()) {
+  <h3>Connected to: {{type()}}</h3>
+  } @else {
+    <h3 color="danger">Not connected!</h3>
+  }
+</ion-content>

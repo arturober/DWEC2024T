@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Grid</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-lg="3">
+        <p>This content takes 50% of space (default) and 25% in large screens</p>
+        <ion-button expand="block" color="primary">A button</ion-button>
+      </ion-col>
+      <ion-col size-lg="9">
+        <p>This content also takes 50% of space, and 75% in large screens</p>
+        <ion-button expand="block" color="secondary">Other button</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" offset="3">
+        This content has 25% margin from the left side and takes 50% of space.
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,112 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form #registerForm="ngForm" (ngSubmit)="register()">
+    <ion-list>
+      <ion-item>
+        <ion-input
+          name="name"
+          label="Name"
+          labelPlacement="floating"
+          required
+          [(ngModel)]="user.name"
+          #nameModel="ngModel"
+        ></ion-input>
+        @if (nameModel.dirty && nameModel.valid) {
+        <ion-icon name="checkmark-circle" slot="end" color="success"></ion-icon>
+        }
+      </ion-item>
+      <ion-item>
+        <ion-input
+          type="email"
+          name="email"
+          label="Email"
+          labelPlacement="floating"
+          required
+          email
+          [(ngModel)]="user.email"
+          #emailModel="ngModel"
+        ></ion-input>
+        @if (emailModel.dirty && emailModel.valid) {
+        <ion-icon name="checkmark-circle" slot="end" color="success"></ion-icon>
+        }
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          type="password"
+          name="password"
+          label="Password"
+          labelPlacement="floating"
+          minlength="4"
+          required
+          [(ngModel)]="user.password"
+          #passModel="ngModel"
+        ></ion-input>
+        @if (passModel.dirty && passModel.valid) {
+        <ion-icon name="checkmark-circle" slot="end" color="success"></ion-icon>
+        }
+      </ion-item>
+      <ion-item>
+        <ion-input
+          type="password"
+          name="password2"
+          label="Repeat password"
+          labelPlacement="floating"
+          required
+          [valueEquals]="user.password!"
+          ngModel
+          #passModel2="ngModel"
+        ></ion-input>
+        @if (passModel2.dirty && passModel2.valid) {
+        <ion-icon name="checkmark-circle" slot="end" color="success"></ion-icon>
+        }
+      </ion-item>
+      <ion-item>
+        <ion-label position="inset">Avatar</ion-label>
+        <ion-button color="secondary" (click)="takePhoto()">
+          <ion-icon name="camera" slot="start"></ion-icon>
+          Camera
+        </ion-button>
+        <ion-button color="tertiary" (click)="pickFromGallery()">
+          <ion-icon name="images" slot="start"></ion-icon>
+          Gallery
+        </ion-button>
+      </ion-item>
+    </ion-list>
+    @if (user.avatar) {
+    <ion-img [src]="user.avatar"></ion-img>
+    }
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button
+            type="submit"
+            color="primary"
+            expand="block"
+            [disabled]="registerForm.invalid || !user.avatar"
+          >
+            <ion-icon name="document-text" slot="start"></ion-icon>
+            Register
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button
+            color="danger"
+            expand="block"
+            fill="outline"
+            [routerLink]="['/auth/login']"
+            [routerDirection]="'root'"
+          >
+            <ion-icon name="arrow-undo-circle" slot="start"></ion-icon>
+            Cancel
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

@@ -1,0 +1,85 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add product</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form #productForm="ngForm" (ngSubmit)="addProduct()">
+    <ion-list>
+      <ion-item>
+        <ion-input
+          name="description"
+          required
+          [(ngModel)]="newProd.description"
+          #descModel="ngModel"
+          label="Description"
+          labelPlacement="floating"
+        ></ion-input>
+        @if (descModel.dirty && descModel.valid) {
+        <ion-icon name="checkmark-circle" slot="end" color="success"></ion-icon>
+        }
+      </ion-item>
+      <ion-item>
+        <ion-input
+          type="number"
+          min="0.00"
+          step="0.01"
+          name="price"
+          required
+          [(ngModel)]="newProd.price"
+          #priceModel="ngModel"
+          label="Price"
+          labelPlacement="floating"
+        ></ion-input>
+        @if (priceModel.dirty && priceModel.valid) {
+        <ion-icon name="checkmark-circle" slot="end" color="success"></ion-icon>
+        }
+      </ion-item>
+      <ion-item>
+        <ion-label position="inset">Photo</ion-label>
+        <ion-button color="secondary" (click)="takePhoto()">
+          <ion-icon name="camera" slot="start"></ion-icon>
+          Camera
+        </ion-button>
+        <ion-button color="tertiary" (click)="pickFromGallery()">
+          <ion-icon name="images" slot="start"></ion-icon>
+          Gallery
+        </ion-button>
+      </ion-item>
+    </ion-list>
+    @if (newProd.imageUrl) {
+    <ion-img [src]="newProd.imageUrl"></ion-img>
+    }
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button
+            type="submit"
+            color="primary"
+            expand="block"
+            [disabled]="productForm.invalid || !newProd.imageUrl"
+          >
+            <ion-icon name="add" slot="start"></ion-icon>
+            Add product
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button
+            color="danger"
+            expand="block"
+            fill="outline"
+            [routerLink]="['/products']"
+            [routerDirection]="'root'"
+          >
+            <ion-icon name="arrow-undo-circle" slot="start"></ion-icon>
+            Cancel
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

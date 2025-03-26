@@ -1,0 +1,186 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Forms</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <form>
+    <ion-list>
+      <ion-item lines="none">
+        <ion-input
+          label="Name"
+          labelPlacement="floating"
+          placeholder="Enter name"
+          errorText="Name is required"
+          required
+          [counter]="true"
+          name="name"
+          [(ngModel)]="data.name"
+        ></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input
+          type="email"
+          label="Email"
+          labelPlacement="floating"
+          placeholder="Enter email"
+          errorText="Enter a valid email"
+          required
+          email
+          name="email"
+          [(ngModel)]="data.email"
+        ></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-textarea
+          label="Description"
+          labelPlacement="floating"
+          placeholder="Tell me something about you"
+          errorText="Description is required"
+          maxlength="120"
+          required
+          [counter]="true"
+          [autoGrow]="true"
+          name="description"
+          [(ngModel)]="data.description"
+        ></ion-textarea>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input
+          [type]="showPass ? 'text' : 'password'"
+          label="Password"
+          labelPlacement="floating"
+          placeholder="Enter password"
+          errorText="Password required and min 4 characters"
+          required
+          minlength="4"
+          name="password"
+          [(ngModel)]="data.password"
+        >
+          <ion-icon
+            slot="start"
+            [name]="showPass ? 'lock-open' : 'lock-closed'"
+            aria-hidden="true"
+          ></ion-icon>
+          <ion-button
+            fill="clear"
+            slot="end"
+            aria-label="Show/hide"
+            (click)="showPass = !showPass"
+          >
+            <ion-icon
+              slot="icon-only"
+              [name]="showPass ? 'eye' : 'eye-off'"
+              aria-hidden="true"
+            ></ion-icon>
+          </ion-button>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Birth date: {{data.birth | date:'dd/MM/yyyy'}}</ion-label>
+        <ion-datetime
+          locale="es-ES"
+          presentation="date"
+          [firstDayOfWeek]="1"
+          [preferWheel]="true"
+          name="birth"
+          required
+          [(ngModel)]="data.birth"
+        ></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-checkbox
+          color="tertiary"
+          [(ngModel)]="data.discount"
+          name="discount"
+          >I want a discount</ion-checkbox
+        >
+      </ion-item>
+      <ion-item>
+        <ion-checkbox
+          color="danger"
+          slot="start"
+          [(ngModel)]="data.discount"
+          name="discount"
+          labelPlacement="end"
+          >I want a discount</ion-checkbox
+        >
+      </ion-item>
+      <ion-radio-group [(ngModel)]="data.food" name="food" value="pizza">
+        <ion-item-divider>
+          <ion-label>Favourite food</ion-label>
+        </ion-item-divider>
+        <ion-item>
+          <ion-radio color="secondary" value="pizza">Pizza</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio color="danger" value="hambuurguer">Hamburguer</ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-radio color="success" value="salad">Salad</ion-radio>
+        </ion-item>
+      </ion-radio-group>
+      <ion-item>
+        <ion-toggle
+          color="danger"
+          [enableOnOffLabels]="true"
+          [(ngModel)]="data.premium"
+          name="premium"
+        >
+          Premium (10€ month)
+        </ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-range
+          label="Skill level"
+          min="0"
+          max="100"
+          step="5"
+          [snaps]="true"
+          [ticks]="true"
+          [pin]="true"
+          color="primary"
+          [(ngModel)]="data.skill"
+          name="skill"
+        >
+          <ion-note slot="start">0</ion-note>
+          <ion-note slot="end">100</ion-note>
+        </ion-range>
+      </ion-item>
+      <ion-item>
+        <ion-range
+          label="Lessons week"
+          min="3"
+          max="20"
+          [pin]="true"
+          [dualKnobs]="true"
+          color="success"
+          [(ngModel)]="data.lessons"
+          name="lessons"
+        >
+          <ion-icon slot="start" color="medium" name="remove"></ion-icon>
+          <ion-icon slot="end" color="medium" name="reorder-four"></ion-icon>
+        </ion-range>
+      </ion-item>
+      <ion-item>
+        <ion-select
+          label="Favourite seasons"
+          [multiple]="true"
+          [(ngModel)]="data.season"
+          name="season"
+        >
+          <ion-select-option value="winter">Winter</ion-select-option>
+          <ion-select-option value="spring">Spring</ion-select-option>
+          <ion-select-option value="summer">Summer</ion-select-option>
+          <ion-select-option value="autumn">Autumn</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </form>
+
+  {{data | json}}
+</ion-content>

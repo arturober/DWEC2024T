@@ -1,0 +1,17 @@
+<ion-content>
+  <ion-list>
+    <ion-list-header>{{title}}</ion-list-header>
+    <ion-item [button]="true" (click)="close('green')">
+      <ion-label>Green</ion-label>
+    </ion-item>
+    <ion-item [button]="true" (click)="close('red')">
+      <ion-label>Red</ion-label>
+    </ion-item>
+    <ion-item [button]="true" (click)="close('blue')">
+      <ion-label>Blue</ion-label>
+    </ion-item>
+    <ion-item [button]="true" (click)="close('yellow')">
+      <ion-label>Yellow</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

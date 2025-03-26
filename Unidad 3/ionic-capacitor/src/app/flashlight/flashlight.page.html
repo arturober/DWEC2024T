@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Flashlight</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-button
+    expand="block"
+    [color]="on() ? 'danger' : 'success'"
+    (click)="toggleFlash()"
+  >
+    <ion-icon name="flashlight" slot="start"></ion-icon>
+    Turn {{on() ? 'off' : 'on'}}
+  </ion-button>
+</ion-content>

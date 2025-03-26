@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Badges & Chips</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="ion-padding" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title size="large">Badges & Chips</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div>
+    <ion-badge color="secondary">10</ion-badge>
+    <ion-badge color="primary">20</ion-badge>
+    <ion-badge color="dark">30</ion-badge>
+    <ion-badge color="danger">40</ion-badge>
+  </div>
+
+  <ion-item>
+    <ion-badge slot="end" color="danger">23</ion-badge>
+    <ion-label>Friends</ion-label>
+  </ion-item>
+
+  <ion-chip color="dark">
+    <ion-label>Chip with Icon</ion-label>
+    <ion-icon name="close-circle" color="danger"> </ion-icon>
+  </ion-chip>
+</ion-content>

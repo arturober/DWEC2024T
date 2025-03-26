@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Clipboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <p>To test the clipboard better, copy text from another app and paste it here. Or copy content from here and paste it elsewhere.</p>
+  <ion-item>
+    <ion-input [(ngModel)]="text"></ion-input>
+  </ion-item>
+  <ion-button color="primary" (click)="copy()">Copy</ion-button>
+  <ion-button color="secondary" (click)="paste()">Paste</ion-button>
+</ion-content>

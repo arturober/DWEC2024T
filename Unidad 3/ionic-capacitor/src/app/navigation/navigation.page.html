@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Navigation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ol-map [coordinates]="coords()">
+    <ga-autocomplete (locationChange)="changePlace($event)"></ga-autocomplete>
+    <ol-marker [coordinates]="coords()"></ol-marker>
+  </ol-map>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="startNavigation()">
+      <ion-icon name="navigate"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Lists</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>Item 1</ion-item>
+    <ion-item>Item 2</ion-item>
+    <ion-item>Item 3</ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="accessibility" slot="start"></ion-icon>
+      <ion-label>Accesibility</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="airplane" slot="start"></ion-icon>
+      <ion-label>Airplane</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="alarm" slot="end"></ion-icon>
+      <ion-label>Alarm</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header color="secondary"> People </ion-list-header>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="./assets/tiofeo.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Ugly man</h2>
+        <h3>I'm a big deal</h3>
+        <p>Listen, I've had a pretty messed up day...</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="./assets/tioraro.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Weird man</h2>
+        <h3>I don't know who am I</h3>
+        <p>More text...</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <!-- Sliding item with text options on both sides -->
+    @for (item of itemList; track $index) {
+    <ion-item-sliding #sliding>
+      <ion-item-options side="start">
+        <ion-item-option (click)="close(sliding)">Favorite</ion-item-option>
+        <ion-item-option color="danger" (click)="close(sliding)">Share</ion-item-option>
+      </ion-item-options>
+
+      <ion-item>
+        <ion-label>{{item}}</ion-label>
+        <ion-icon slot="end" name="chevron-back" (click)="showRightOptions(sliding)"></ion-icon>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="tertiary" (click)="close(sliding)">Unread</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+    }
+  </ion-list>
+</ion-content>

@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dialogs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <p><ion-button (click)="showAlert()">Show alert</ion-button></p>
+  <p><ion-button (click)="showConfirm()">Show confirm</ion-button></p>
+  <p>{{confirm() ? 'Good choice!' : 'Bad choice...'}}</p>
+  <p><ion-button (click)="showPrompt()">Show prompt</ion-button></p>
+  <p>{{name()}}</p>
+</ion-content>

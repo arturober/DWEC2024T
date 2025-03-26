@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Camera</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-button (click)="takePhoto()">Take photo</ion-button>
+  <ion-button (click)="pickFromGallery()" color="success">Pick from gallery</ion-button>
+  @if (image()) {
+    <ion-img [src]="image()"></ion-img>
+  }
+</ion-content>

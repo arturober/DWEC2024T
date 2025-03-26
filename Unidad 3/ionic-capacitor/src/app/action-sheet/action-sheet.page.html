@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Action Sheet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <p><ion-button (click)="showActions()">Show Action Sheet</ion-button></p>
+  @if (option() >= 0) {
+    <p>Option selected: {{option()}}</p>
+  }
+</ion-content>

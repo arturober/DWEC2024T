@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Product List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher #refresher slot="fixed" (ionRefresh)="reloadProducts(refresher)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="secondary" [routerLink]="['/products/add']" [routerDirection]="'root'">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-list style="padding-bottom: 50px">
+    @for (prod of products(); track prod.id) {
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img [src]="prod.imageUrl">
+        </ion-thumbnail>
+        <ion-label text-wrap>
+          <h4>{{prod.description}}</h4>
+          <p>{{prod.price | currency:'EUR':'symbol'}}</p>
+        </ion-label>
+        <ion-button slot="end" fill="clear" color="dark" (click)="showOptions(prod)">
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-item>
+    }
+  </ion-list>
+</ion-content>

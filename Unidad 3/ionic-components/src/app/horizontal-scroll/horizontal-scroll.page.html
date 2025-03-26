@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Horizontal scroll</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="scrollX">
+    @for (icon of icons; track $index) {
+    <ion-button fill="clear">
+      <ion-icon slot="icon-only" [name]="icon"></ion-icon>
+    </ion-button>
+    }
+  </div>
+  <p>Horizontal Scroll</p>
+</ion-content>

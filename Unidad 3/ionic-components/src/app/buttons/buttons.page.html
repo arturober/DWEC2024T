@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Buttons</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="ion-padding" [fullscreen]="true">
+  <p>Small Size</p>
+  <ion-button size="small">Default</ion-button>
+  <ion-button size="small" color="secondary">Secondary</ion-button>
+  <ion-button size="small" color="tertiary">Tertiary</ion-button>
+
+  <p>Default Size</p>
+  <ion-button color="success">Success</ion-button>
+  <ion-button color="warning">Warning</ion-button>
+  <ion-button color="danger">Danger</ion-button>
+
+  <p>Large Size</p>
+  <ion-button size="large" color="light">Light</ion-button>
+  <ion-button size="large" color="medium">Medium</ion-button>
+  <ion-button size="large" color="dark">Dark</ion-button>
+
+  <p>Block Width</p>
+  <ion-button expand="block" color="primary">
+    <ion-icon name="logo-github" slot="start"></ion-icon>
+    A block button
+  </ion-button>
+
+  <p>Full Width</p>
+  <ion-button expand="full" color="secondary">A full-width button</ion-button>
+
+  <ion-button color="primary" fill="outline">Primary Outline</ion-button>
+
+  <ion-button color="primary" fill="clear">Primary Clear</ion-button>
+
+  <ion-button>
+    <ion-icon slot="start" name="star"></ion-icon>
+    Left Icon
+  </ion-button>
+
+  <ion-button>
+    Right Icon
+    <ion-icon slot="end" name="star"></ion-icon>
+  </ion-button>
+
+  <ion-button>
+    <ion-icon slot="icon-only" name="star"></ion-icon>
+  </ion-button>
+
+  <ion-button fill="outline">
+    <ion-icon slot="icon-only" name="star"></ion-icon>
+  </ion-button>
+
+  <ion-button fill="clear">
+    <ion-icon slot="icon-only" name="star"></ion-icon>
+  </ion-button>
+</ion-content>

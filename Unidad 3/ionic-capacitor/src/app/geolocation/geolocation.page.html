@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Geolocation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if(coords()) {
+    <ol-map [coordinates]="coords()">
+      <ol-marker [coordinates]="coords()"></ol-marker>
+    </ol-map>
+  }
+</ion-content>

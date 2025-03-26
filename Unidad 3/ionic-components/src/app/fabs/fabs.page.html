@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Fabs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="ion-padding" [fullscreen]="true">
+  <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
+    <ion-fab-button color="danger">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="end">
+      <ion-fab-button>
+        <ion-icon name="logo-facebook" color="tertiary"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="logo-instagram" color="danger"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="logo-twitter" color="primary"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="top">
+      <ion-fab-button>
+        <ion-icon name="logo-vimeo" color="secondary"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="logo-youtube" color="danger"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

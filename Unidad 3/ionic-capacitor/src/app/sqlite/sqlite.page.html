@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  @if (open()) {
+  <p>Connected to SQLite!</p>
+  }
+  <form #personForm="ngForm" (ngSubmit)="add(personForm)">
+    <ion-list>
+      <ion-item>
+        <ion-input type="text" label="Name" name="name" [(ngModel)]="person.name" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" label="Age" name="age" [(ngModel)]="person.age" required>
+        </ion-input>
+      </ion-item>
+    </ion-list>
+    <div>
+      <ion-button type="submit" expand="block" [disabled]="personForm.invalid"
+        >Add</ion-button
+      >
+    </div>
+  </form>
+
+  <ion-list>
+    @for (person of people(); track person.id; let i = $index) {
+    <ion-item>
+      {{person.name}} ({{person.age}})
+      <ion-button fill="clear" slot="end" (click)="remove(person, i)">
+        <ion-icon slot="icon-only" name="trash" color="danger"></ion-icon>
+      </ion-button>
+    </ion-item>
+    } @empty {
+      <ion-item>No people in database...</ion-item>
+    }
+  </ion-list>
+
+  <p>{{people() | json}}</p>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Gestures</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item (tap)="tap()" (press)="press()"
+    (swipeLeft)="swipeLeft()" (swipeRight)="swipeRight()"
+    (pinch)="pinch()" (rotate)="rotate()">
+    <ion-label>
+      <h2>Touch me</h2>
+      <p>You can pinch and rotate</p>
+    </ion-label>
+  </ion-item>
+  <p class="ion-padding-start ion-padding-end">
+    {{events | json}}
+  </p>
+</ion-content>

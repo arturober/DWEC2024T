@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ionic Components</string>
+    <string name="title_activity_main">Ionic Components</string>
+    <string name="package_name">dwec.ionic.components</string>
+    <string name="custom_url_scheme">dwec.ionic.components</string>
+</resources>

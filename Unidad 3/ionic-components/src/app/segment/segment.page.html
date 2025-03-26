@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Segment</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="light">
+    <ion-segment [(ngModel)]="type" (ngModelChange)="typeChanged()">
+      <ion-segment-button value="heroes"> Heroes </ion-segment-button>
+      <ion-segment-button value="villains"> Villains </ion-segment-button>
+      <ion-segment-button value="weapons"> Weapons </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    @switch (type) {
+      @case ('heroes') {
+        @for (heroe of heroes; track heroe) {
+          <ion-item> {{ heroe }} </ion-item>
+        }
+      }
+      @case ('villains') {
+        @for (villain of villains; track villain) {
+          <ion-item> {{ villain }} </ion-item>
+        }
+      }
+      @case ('weapons') {
+        @for (weapon of weapons; track weapon) {
+          <ion-item> {{ weapon }} </ion-item>
+        }
+      }
+    }
+  </ion-list>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar></ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if (product()) {
+    <ion-card>
+      <img [src]="product()!.imageUrl">
+      <ion-card-content>
+        <ion-card-title>{{product()!.description}}</ion-card-title>
+        <ion-card-subtitle>{{product()!.price | currency:'EUR':'symbol'}}</ion-card-subtitle>
+        <ion-button expand="block" color="danger" (click)="delete()">
+          <ion-icon name="trash" slot="start"></ion-icon>
+          <ion-label>Delete</ion-label>
+        </ion-button>
+      </ion-card-content>
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img [src]="product()!.creator?.avatar">
+        </ion-avatar>
+        <ion-label>{{ product()!.creator?.name }}</ion-label>
+      </ion-item>
+    </ion-card>
+  }
+</ion-content>
